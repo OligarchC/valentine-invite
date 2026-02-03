@@ -71,9 +71,14 @@
                 <section class="visual">
                   <div class="photo-card">
                     <div class="photo-glow"></div>
+                    <img
+                      class="photo-img"
+                      :src="photoUrl"
+                      alt="Silvana and me"
+                    />
                     <div class="photo-inner">
                       <div class="sparkle"></div>
-                      <div class="monogram">V</div>
+                      <div class="monogram">S</div>
                       <p class="note">For you, always.</p>
                     </div>
                   </div>
@@ -94,7 +99,7 @@
         </div>
         <div class="cinema-copy">
           <p class="cinema-eyebrow">A moment to remember</p>
-          <h2 class="cinema-title">You just made my year.</h2>
+          <h2 class="cinema-title">Silvana, you just made my year.</h2>
           <p class="cinema-subtitle">February 14 • Our story begins</p>
         </div>
         <button class="cinema-close" @click="showCinematic = false">Close</button>
@@ -105,6 +110,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import photoUrl from './assets/silvana.jpg'
 
 const showAlert = ref(false)
 const noBtnOffset = ref({ x: 0, y: 0 })
@@ -305,6 +311,15 @@ const noBtnStyle = computed(() => ({
   overflow: hidden;
   background: linear-gradient(135deg, #2e143f, #5f2a73 60%, #9a4a90);
   box-shadow: 0 22px 50px rgba(52, 19, 77, 0.45);
+}
+
+.photo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
 }
 
 .photo-glow {
